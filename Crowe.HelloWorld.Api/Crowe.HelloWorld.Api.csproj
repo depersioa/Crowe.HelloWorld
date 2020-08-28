@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Crowe.HelloWorld.Models\Crowe.HelloWorld.Models.csproj" />
+  </ItemGroup>
+
 
 </Project>
