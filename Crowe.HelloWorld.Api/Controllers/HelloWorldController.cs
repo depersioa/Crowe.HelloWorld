@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 using Crowe.HelloWorld.Writers;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crowe.HelloWorld.Api.Controllers
@@ -31,7 +26,7 @@ namespace Crowe.HelloWorld.Api.Controllers
             {
                 _writer.Write("Hello World");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new StatusCodeResult(500);
             }

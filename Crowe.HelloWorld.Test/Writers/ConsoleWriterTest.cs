@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Crowe.HelloWorld.Writers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

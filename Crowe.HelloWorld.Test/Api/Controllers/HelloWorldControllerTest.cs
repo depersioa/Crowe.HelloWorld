@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
-using Crowe.HelloWorld.Api.Controllers;
+﻿using Crowe.HelloWorld.Api.Controllers;
 using Crowe.HelloWorld.Writers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
