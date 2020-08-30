@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Crowe.HelloWorld.Console
 {
-    private class Program
+    class Program
     {
         public static IConfigurationRoot configuration;
         
