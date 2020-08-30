@@ -16,9 +16,10 @@ namespace Crowe.HelloWorld.Api.Controllers
         }
 
         /// <summary>
+        /// POST: /api/helloworld
         /// Writes hello world to the configured writer
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Either an HTTP 200 or 500</returns>
         [HttpPost]
         public ActionResult Write()
         {

@@ -20,6 +20,7 @@ namespace Crowe.HelloWorld.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Load writer from appsettings.json and inject the dependency
             var writer = Configuration.GetSection("Writer").Value;
             switch (writer)
             {
