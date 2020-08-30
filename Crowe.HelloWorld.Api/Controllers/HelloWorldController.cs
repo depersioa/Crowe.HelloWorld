@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Crowe.HelloWorld.Models.Entities;
 using Crowe.HelloWorld.Models.Response;
@@ -20,16 +21,21 @@ namespace Crowe.HelloWorld.Api.Controllers
         [HttpGet]
         public ActionResult<HelloWorldResponse> Get()
         {
-            var results = new HelloWorldResponse()
+            var results = new HelloWorldResponse();
+            try
             {
-                Success = true,
-                Message = "Success",
-                Data = new HelloWorldEntity()
+                results.Success = true;
+                results.Message = "Success";
+                results.Data = new HelloWorldEntity()
                 {
                     Message = "Hello World"
-                }
-            };
+                };
 
+            }
+            catch (Exception ex)
+            {
+                return new StatusCodeResult(500);
+            }
             return Ok(results);
         }
     }
