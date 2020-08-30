@@ -21,6 +21,7 @@ namespace Crowe.HelloWorld.Api.Controllers
         [HttpGet]
         public ActionResult<HelloWorldResponse> Get()
         {
+            Console.WriteLine("Doing stuff");
             var results = new HelloWorldResponse();
             try
             {
