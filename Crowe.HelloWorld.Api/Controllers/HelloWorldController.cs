@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Crowe.HelloWorld.Models.Entities;
 using Crowe.HelloWorld.Models.Response;
+using Crowe.HelloWorld.Writers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,30 +15,29 @@ namespace Crowe.HelloWorld.Api.Controllers
     [ApiController]
     public class HelloWorldController : ControllerBase
     {
+        private readonly IWriter _writer;
+
+        public HelloWorldController(IWriter writer)
+        {
+            _writer = writer;
+        }
+
         /// <summary>
-        /// Gets hello world
+        /// Writes hello world to the configured writer
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public ActionResult<HelloWorldResponse> Get()
+        [HttpPost]
+        public ActionResult Write()
         {
-            Console.WriteLine("Doing stuff");
-            var results = new HelloWorldResponse();
             try
             {
-                results.Success = true;
-                results.Message = "Success";
-                results.Data = new HelloWorldEntity()
-                {
-                    Message = "Hello World"
-                };
-
+                _writer.Write("Hello World");
             }
             catch (Exception ex)
             {
                 return new StatusCodeResult(500);
             }
-            return Ok(results);
+            return Ok();
         }
     }
 }
