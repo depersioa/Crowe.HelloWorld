@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using Crowe.HelloWorld.Models.Entities;
-using Crowe.HelloWorld.Models.Response;
 using Crowe.HelloWorld.Writers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,7 +27,15 @@ namespace Crowe.HelloWorld.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IWriter, ConsoleWriter>();
+            var writer = Configuration.GetSection("Writer").Value;
+            switch (writer)
+            {
+                case "ConsoleWriter":
+                    services.AddSingleton<IWriter, ConsoleWriter>();
+                    break;
+                default:
+                    throw new NotImplementedException($"{writer} is an unrecognized writer.");
+            }
             services.AddControllers();
         }
 

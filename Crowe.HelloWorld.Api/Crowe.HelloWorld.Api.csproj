@@ -8,5 +8,9 @@
     <ProjectReference Include="..\Crowe.HelloWorld.Writers\Crowe.HelloWorld.Writers.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 
 </Project>
